@@ -26,12 +26,13 @@ function App() {
         .catch(error => {
             console.log('Get /list error', error)
         })
-    }
+    };
 
     const addItem = (newItem) => {
             axios.post('/list', newItem)
                 .then(response => {
                     // GET function 
+                    FetchShoppingList();
                 }).catch(error => {
                     alert('Error Adding Item')
                 })
