@@ -1,5 +1,5 @@
 import React from 'react';
-
+import axios from 'axios';
 import Header from '../Header/Header.jsx'
 import InputForm from '../input_form/input_form.jsx';
 import './App.css';
@@ -12,7 +12,6 @@ function App() {
 
     const addItem = (newItem) => {
         axios.post('/list', newItem)
-            console.log('newItem', newItem);
             .then(response => {
                 // GET function 
             }).catch(error => {
