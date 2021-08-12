@@ -4,6 +4,19 @@ const pool = require('../modules/pool.js');
 
 // TODO - Add routes here...
 
+router.post('/', (req,res)=> {
+    const newItem = req.body;
+    const sqlQuery = `INSERT INTO shoppinglist ("item", "quantity", "unit") VALUES ($1, $2, $3)`;
+    pool.query(sqlQuery, [newItem.name, newItem.quantity, newItem.unit]).then((result)=> {
+        console.log(`Added item to database`, newItem);
+        res.sendStatus(201); // Created
+    }).catch((error) => {
+        console.log(`Error with database query ${newItem}`, error);
+        res.sendStatus(500); // Server Error
+    })
+}) // end router.post
+
+
 // GET
 router.get('/', (req, res) => {
     let sqlQuery = 'SELECT * FROM "shoppinglist" ORDER BY "purchased", "item" ASC;';
@@ -15,5 +28,6 @@ router.get('/', (req, res) => {
         res.sendStatus(500);
     })
 })
+
 
 module.exports = router;
