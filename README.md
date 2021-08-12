@@ -4,9 +4,9 @@
 
 ## Description
 
-[]npm install
+[x]npm install
 [X] Postico
-[] fs-react-shopping
+[x] fs-react-shopping
 []
 ## Form
 []Top of page

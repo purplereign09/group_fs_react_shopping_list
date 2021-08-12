@@ -3,6 +3,7 @@ const router = express.Router();
 const pool = require('../modules/pool.js');
 
 // TODO - Add routes here...
+
 router.post('/', (req,res)=> {
     const newItem = req.body;
     const sqlQuery = `INSERT INTO shoppinglist ("item", "quantity", "unit") VALUES ($1, $2, $3)`;
@@ -14,5 +15,19 @@ router.post('/', (req,res)=> {
         res.sendStatus(500); // Server Error
     })
 }) // end router.post
+
+
+// GET
+router.get('/', (req, res) => {
+    let sqlQuery = 'SELECT * FROM "shoppinglist" ORDER BY "purchased", "item" ASC;';
+    pool.query(sqlQuery).then(dbRes => {
+        console.log('db Get successful');
+        res.send(dbRes.rows)
+    }).catch(error => {
+        console.log('DB failed to GET.');
+        res.sendStatus(500);
+    })
+})
+
 
 module.exports = router;
