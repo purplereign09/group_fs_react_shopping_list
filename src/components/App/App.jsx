@@ -38,13 +38,20 @@ function App() {
                 })
     } // end axios.post
 
+    const purchaseItem = (item) => {
+        console.log(item);
+        // add in the axios call and the corresponding server call
+        // PUT
+        // and update the dom
+    }
+
     return (
         <div className="App">
             <Header />
             <InputForm addItem={addItem}/>
             <main>
                 <p>Under Construction...</p>
-                <ShoppingList shoppingList={shoppingList}/>
+                <ShoppingList purchaseItem={purchaseItem} shoppingList={shoppingList}/>
             </main>
         </div>
     );
