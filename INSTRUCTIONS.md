@@ -12,11 +12,20 @@ Isn't it just the worst when you come back from grocery shopping only to realize
 [] Postico
 [] fs-react-shopping
 []
-## Form
-[]Top of page
-[]Interface
-  []3 inputs
-[]
+
+## ROUTES
+/list'
+## GET
+Dan/Hamza
+## POST
+  --Form
+  []"ADD an Item"
+  []Interface
+    []3 inputs
+    []Save Button
+## PUT
+
+## DELETE
 
 ## Requirements
 
