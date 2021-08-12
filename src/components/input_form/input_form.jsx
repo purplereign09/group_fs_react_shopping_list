@@ -1,16 +1,26 @@
 import {useState} from 'react';
 
 
-function InputForm(){
+function InputForm({addItem}){
 
     const [itemName, setItemName] = useState('');
     const [quantityName, setQuantityName] = useState('');
     const [unitName, setUnitName] = useState('');
 
+    let newItem = {
+        name: itemName,
+        quantity: quantityName,
+        unit: unitName,
+    };
+
     const onSubmit = (evt) => {
         evt.preventDefault(); 
         console.log(('submitted!'));
-        
+        addItem(newItem);
+        // Reset User Fields
+        setItemName('');
+        setQuantityName('');
+        setUnitName('');
         }
 
     return (
