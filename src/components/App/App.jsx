@@ -6,6 +6,7 @@ import './App.css';
 
 function App() {
 
+    let [shoppingList, setShoppingList] = useState([]);
     useEffect(() => {
         //Code runs on page load 
 
@@ -16,6 +17,8 @@ function App() {
     const FetchShoppingList = () =>{
         axios.get('/list').then(response => {
             console.log('Get /list response', response.data)
+            setShoppingList(response.data);
+
         })
         .catch(error => {
             console.log('Get /list error', error)

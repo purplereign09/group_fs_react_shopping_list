@@ -7,7 +7,9 @@ function ShoppingList({shoppingList}) {
             <h2>Shopping List</h2>
             <button>Reset</button>
             <button>Clear</button> 
-            {shoppingList.map(item => <ShoppingItem item={item} />)}
+            <ul>
+                {shoppingList.map(item => <ShoppingItem item={item} />)}
+            </ul>
         </>
     );
 };
