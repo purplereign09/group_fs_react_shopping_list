@@ -1,5 +1,5 @@
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import React from 'react';
 
 import Header from '../Header/Header.jsx'
 import './App.css';
@@ -16,14 +16,14 @@ function App() {
 
     //making request to get the shopping list from the db
     const FetchShoppingList = () =>{
-        axios.get(('/list').then(response => {
+        axios.get('/list').then(response => {
             console.log('Get /list response', response.data)
         })
         .catch(error => {
             console.log('Get /list error', error)
         })
-        );
     }
+
     return (
         <div className="App">
             <Header />
