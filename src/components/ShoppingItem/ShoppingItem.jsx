@@ -1,8 +1,8 @@
-function ShoppingItem(item) {
-
+function ShoppingItem({item}) {
+    console.log(' in shoppingitem: ', item);
     return (
         <li>
-            item.item <br></br>item.quantity item.unit
+            <p>{item.item} <br></br>{item.quantity} {item.unit}</p>
             <button>Buy</button>
             <button>Remove</button>
         </li>

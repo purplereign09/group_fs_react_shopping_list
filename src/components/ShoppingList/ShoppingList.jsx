@@ -1,7 +1,6 @@
 import ShoppingItem from "../ShoppingItem/ShoppingItem";
 
 function ShoppingList({shoppingList}) {
-
     return (
         <>
             <h2>Shopping List</h2>
