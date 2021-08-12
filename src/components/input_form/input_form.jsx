@@ -1,9 +1,18 @@
+import {useState} from 'react';
+
+
 function InputForm(){
+    const onSubmit = (evt) => {
+        evt.preventDefault(); 
+        console.log(('submitted!'));
+        
+        }
 
     return (
         < >
             <h1>Add Item</h1>
-            <form>
+            <form onSubmit={onSubmit}>
+
                 <div>
                     <label>Item:</label>
                         <input type="text" placeholder="item"/>
@@ -18,7 +27,7 @@ function InputForm(){
             
                 <div>
 
-                <button>Save</button>
+                <button type="submit">Save</button>
                 
                 </div>
             
