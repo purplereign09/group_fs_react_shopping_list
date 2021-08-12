@@ -1,28 +1,29 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+
 import Header from '../Header/Header.jsx'
 import './App.css';
+import {useState, useEffect} from 'react';
 
 
 function App() {
 
-    let [shoppingList, setShoppingList] = useState();
-
     useEffect(() => {
-        fetchShoppingList();
-    },[])
+        //Code runs on page load 
 
-    const fetchShoppingList = () => {
-        axios.getShoppingList('/list').then(response => {
-            console.log('Successful GET.');
-            setShoppingList(response.data);
-        }).catch(error => {
-            console.log('/GET error: ', error);
-            alert('Failed to GET. See console for details.');
+        FetchShoppingList(); //fetching shopping lists from the server
+    }, [])
+
+    //making request to get the shopping list from the db
+    const FetchShoppingList = () =>{
+        axios.get(('/list').then(response => {
+            console.log('Get /list response', response.data)
         })
-
-    };
-
+        .catch(error => {
+            console.log('Get /list error', error)
+        })
+        );
+    }
     return (
         <div className="App">
             <Header />
