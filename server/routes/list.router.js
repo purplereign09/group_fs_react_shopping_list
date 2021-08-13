@@ -40,4 +40,13 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+router.delete('/', (req, res) => {
+    let sqlQuery = 'DELETE FROM "shoppinglist"';
+    pool.query(sqlQuery)
+    .then(dbRes => {
+        console.log('deleted!');
+        res.sendStatus(200)
+    })
+})
+
 module.exports = router;

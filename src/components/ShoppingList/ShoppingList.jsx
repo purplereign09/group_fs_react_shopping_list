@@ -1,6 +1,6 @@
 import ShoppingItem from "../ShoppingItem/ShoppingItem";
 
-function ShoppingList({shoppingList}) {
+function ShoppingList({shoppingList, deleteShoppingItem}) {
     return (
         <>
             <h2>Shopping List</h2>

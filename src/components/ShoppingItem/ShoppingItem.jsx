@@ -4,7 +4,7 @@ function ShoppingItem({item}) {
         <li>
             <p>{item.item} <br></br>{item.quantity} {item.unit}</p>
             <button>Buy</button>
-            <button>Remove</button>
+            <button onClick={() => deleteShoppingItem(item.id)}>Remove</button>
         </li>
     );
 };

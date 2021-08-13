@@ -15,3 +15,9 @@ CREATE TABLE shoppinglist (
 		   ('milk', '1', 'gallon'),
 		   ('sliced almonds', '2', 'cups'),
 		   ('bananas', '1', 'bunch');
+
+DELETE FROM shoppinglist 
+WHERE id=1;
+
+
+DELETE FROM shoppinglist;
