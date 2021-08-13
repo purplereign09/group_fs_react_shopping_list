@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
     })
 })
 
-// PUT
+// PUT - Buy Button
 router.put('/:id', (req, res) => {
     let sqlParams = [req.params.id];
     let sqlQuery = `
@@ -43,7 +43,18 @@ router.put('/:id', (req, res) => {
         console.log('DB failed to PUT: ', error)
         res.sendStatus(500);
     })
+})
 
+// PUT - Reset Button
+router.put('/', (req, res)=> {
+    let sqlQuery = `UPDATE "shoppinglist" 
+                    SET "purchased" = FALSE`;
+    pool.query(sqlQuery).then(dbResponse => {
+        res.sendStatus(200);
+    }).catch(dbError => {
+        console.log('DB failed to PUT', error);
+        res.sendStatus(500);
+    })
 })
 
 

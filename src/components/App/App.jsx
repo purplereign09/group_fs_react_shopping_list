@@ -51,13 +51,23 @@ function App() {
 
     }
 
+    const resetPurchases = () => {
+        axios.put('/list').then(response => {
+            console.log('PUT Reset Purchases successful');
+            FetchShoppingList();
+        }).catch(error => {
+            console.log('Failed to PUT:', error);
+            alert('Failed to PUT. See console for details.')
+        })
+    } // end resetPurchases
+
     return (
         <div className="App">
             <Header />
             <InputForm addItem={addItem}/>
             <main>
                 <p>Under Construction...</p>
-                <ShoppingList purchaseItem={purchaseItem} shoppingList={shoppingList}/>
+                <ShoppingList purchaseItem={purchaseItem} shoppingList={shoppingList} resetPurchases={resetPurchases}/>
             </main>
         </div>
     );
