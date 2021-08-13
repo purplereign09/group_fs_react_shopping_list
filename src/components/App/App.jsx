@@ -64,11 +64,10 @@ function App() {
     return (
         <div className="App">
             <Header />
+            <div className="body">
             <InputForm addItem={addItem}/>
-            <main>
-                <p>Under Construction...</p>
                 <ShoppingList purchaseItem={purchaseItem} shoppingList={shoppingList} resetPurchases={resetPurchases}/>
-            </main>
+            </div>
         </div>
     );
 }

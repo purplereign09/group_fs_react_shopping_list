@@ -11,11 +11,12 @@ function ShoppingList({shoppingList, purchaseItem, resetPurchases}) {
     return (
         <>
             <h2>Shopping List</h2>
-            <button onClick={ResetButton}>Reset</button>
-            <button>Clear</button> 
-            <ul>
-                {shoppingList.map(item => <ShoppingItem item={item} purchaseItem={purchaseItem}/>)}
-            </ul>
+            <div>
+                <button onClick={ResetButton}>Reset</button>
+                <button>Clear</button> 
+            </div>
+            {shoppingList.map(item => <ShoppingItem item={item} purchaseItem={purchaseItem}/>)}
+
         </>
     );
 };
