@@ -29,5 +29,22 @@ router.get('/', (req, res) => {
     })
 })
 
+// PUT
+router.put('/:id', (req, res) => {
+    let sqlParams = [req.params.id];
+    let sqlQuery = `
+        UPDATE "shoppinglist"
+        SET "purchased" = TRUE
+        WHERE "id" = $1       
+        `;
+    pool.query(sqlQuery, sqlParams).then(dbResponse => {
+        res.sendStatus(200);
+    }).catch(dbError => {
+        console.log('DB failed to PUT: ', error)
+        res.sendStatus(500);
+    })
+
+})
+
 
 module.exports = router;

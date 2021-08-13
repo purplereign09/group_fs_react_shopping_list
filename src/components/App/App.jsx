@@ -38,13 +38,26 @@ function App() {
                 })
     } // end axios.post
 
+    const purchaseItem = (id) => {
+        console.log(id);
+        // add in the axios call and the corresponding server call
+        axios.put(`/list/${id}`).then(response => {
+            console.log('PUT (purchase) successful.');
+            FetchShoppingList();
+        }).catch(error => {
+            console.log('Failed to PUT: ', error);
+            alert('Failed to PUT. See console for details.');
+        })
+
+    }
+
     return (
         <div className="App">
             <Header />
             <InputForm addItem={addItem}/>
             <main>
                 <p>Under Construction...</p>
-                <ShoppingList shoppingList={shoppingList}/>
+                <ShoppingList purchaseItem={purchaseItem} shoppingList={shoppingList}/>
             </main>
         </div>
     );
