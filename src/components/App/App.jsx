@@ -38,11 +38,17 @@ function App() {
                 })
     } // end axios.post
 
-    const purchaseItem = (item) => {
-        console.log(item);
+    const purchaseItem = (id) => {
+        console.log(id);
         // add in the axios call and the corresponding server call
-        // PUT
-        // and update the dom
+        axios.put(`/list/${id}`).then(response => {
+            console.log('PUT (purchase) successful.');
+            FetchShoppingList();
+        }).catch(error => {
+            console.log('Failed to PUT: ', error);
+            alert('Failed to PUT. See console for details.');
+        })
+
     }
 
     return (

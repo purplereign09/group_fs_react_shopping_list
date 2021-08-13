@@ -1,9 +1,9 @@
 function ShoppingItem({item, purchaseItem}) {
     
-    const resetButton = () => {
+    const resetBuyButton = () => {
         // grab item id from the surrounding context (props)
         purchaseItem(item.id)
-        console.log(item);
+        console.log(item.id);
         // send back the data
     }
 
@@ -12,8 +12,7 @@ function ShoppingItem({item, purchaseItem}) {
         <li>
             <p>{item.item} <br></br>{item.quantity} {item.unit}</p>
             {/* add conditional rendering in here */}
-            {item.purchased === true ? 'Purchased' : <><button onClick={resetButton}>Buy</button> <button>Remove</button></>}
-            
+            {item.purchased === true ? 'Purchased' : <><button onClick={resetBuyButton}>Buy</button> <button>Remove</button></>}
         </li>
     );
 };
