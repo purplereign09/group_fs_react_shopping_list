@@ -29,5 +29,15 @@ router.get('/', (req, res) => {
     })
 })
 
+//clear button
+router.delete('/:id', (req, res) => {
+    let sqlQuery = 'DELETE FROM "shoppinglist" WHERE ID=$1';
+    let deletedItem = [req.params.id]
+    pool.query(sqlQuery, deletedItem)
+    .then(dbRes => {
+        console.log('deleted!');
+        res.sendStatus(200)
+    })
+})
 
 module.exports = router;
