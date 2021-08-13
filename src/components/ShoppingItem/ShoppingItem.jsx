@@ -9,11 +9,11 @@ function ShoppingItem({item, purchaseItem}) {
 
 
     return (
-        <li>
+        <div className="itemCard">
             <p>{item.item} <br></br>{item.quantity} {item.unit}</p>
             {/* add conditional rendering in here */}
             {item.purchased === true ? 'Purchased' : <><button onClick={resetBuyButton}>Buy</button> <button>Remove</button></>}
-        </li>
+        </div>
     );
 };
 
