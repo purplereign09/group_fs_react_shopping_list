@@ -54,6 +54,7 @@ router.put('/', (req, res)=> {
     }).catch(dbError => {
         console.log('DB failed to PUT', error);
         res.sendStatus(500);
+        
     })
 })
 
