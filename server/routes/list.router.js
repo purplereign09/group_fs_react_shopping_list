@@ -29,6 +29,7 @@ router.get('/', (req, res) => {
     })
 })
 
+
 //clear button
 router.delete('/:id', (req, res) => {
     let sqlQuery = 'DELETE FROM "shoppinglist" WHERE ID=$1';
@@ -48,5 +49,36 @@ router.delete('/', (req, res) => {
         res.sendStatus(200)
     })
 })
+
+// PUT - Buy Button
+router.put('/:id', (req, res) => {
+    let sqlParams = [req.params.id];
+    let sqlQuery = `
+        UPDATE "shoppinglist"
+        SET "purchased" = TRUE
+        WHERE "id" = $1       
+        `;
+    pool.query(sqlQuery, sqlParams).then(dbResponse => {
+        res.sendStatus(200);
+    }).catch(dbError => {
+        console.log('DB failed to PUT: ', error)
+        res.sendStatus(500);
+    })
+})
+
+// PUT - Reset Button
+router.put('/', (req, res)=> {
+    let sqlQuery = `UPDATE "shoppinglist" 
+                    SET "purchased" = FALSE`;
+    pool.query(sqlQuery).then(dbResponse => {
+        res.sendStatus(200);
+    }).catch(dbError => {
+        console.log('DB failed to PUT', error);
+        res.sendStatus(500);
+        
+    })
+})
+
+
 
 module.exports = router;
