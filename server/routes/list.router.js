@@ -29,6 +29,27 @@ router.get('/', (req, res) => {
     })
 })
 
+
+//clear button
+router.delete('/:id', (req, res) => {
+    let sqlQuery = 'DELETE FROM "shoppinglist" WHERE ID=$1';
+    let deletedItem = [req.params.id]
+    pool.query(sqlQuery, deletedItem)
+    .then(dbRes => {
+        console.log('deleted!');
+        res.sendStatus(200)
+    })
+})
+
+router.delete('/', (req, res) => {
+    let sqlQuery = 'DELETE FROM "shoppinglist"';
+    pool.query(sqlQuery)
+    .then(dbRes => {
+        console.log('deleted!');
+        res.sendStatus(200)
+    })
+})
+
 // PUT - Buy Button
 router.put('/:id', (req, res) => {
     let sqlParams = [req.params.id];
@@ -57,6 +78,7 @@ router.put('/', (req, res)=> {
         
     })
 })
+
 
 
 module.exports = router;

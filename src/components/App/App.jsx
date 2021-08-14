@@ -8,12 +8,22 @@ import ShoppingList from '../ShoppingList/ShoppingList.jsx';
 function App() {
 
     let [shoppingList, setShoppingList] = useState([]);
+    let [deleteItem, setDeleteItem] = useState ('');
 
     useEffect(() => {
         //Code runs on page load 
 
         FetchShoppingList(); //fetching shopping lists from the server
     }, [])
+
+   
+    const deleteShoppingItem = (itemId) => {
+  // do some stuff with itemId :)
+   
+    axios.delete(`/list/${itemId}`)
+    .then(response => {
+    })
+    
 
     //making request to get the shopping list from the db
     const FetchShoppingList = () =>{
@@ -66,10 +76,16 @@ function App() {
             <Header />
             <div className="body">
             <InputForm addItem={addItem}/>
+
+            <main>
+                <p>Under Construction...</p>
+                <ShoppingList shoppingList={shoppingList} deleteShoppingItem={deleteShoppingItem}/>
+            </main>
                 <ShoppingList purchaseItem={purchaseItem} shoppingList={shoppingList} resetPurchases={resetPurchases}/>
             </div>
         </div>
     );
 }
+
 
 export default App;

@@ -11,9 +11,14 @@ function ShoppingItem({item, purchaseItem}) {
     return (
         <div className="itemCard">
             <p>{item.item} <br></br>{item.quantity} {item.unit}</p>
+
+            <button>Buy</button>
+            <button onClick={() => deleteShoppingItem(item.id)}>Remove</button>
+        </li>
             {/* add conditional rendering in here */}
             {item.purchased === true ? 'Purchased' : <><button onClick={resetBuyButton}>Buy</button> <button>Remove</button></>}
         </div>
+
     );
 };
 

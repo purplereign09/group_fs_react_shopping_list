@@ -1,5 +1,8 @@
 import ShoppingItem from "../ShoppingItem/ShoppingItem";
 
+
+function ShoppingList({shoppingList, deleteShoppingItem}) {
+
 function ShoppingList({shoppingList, purchaseItem, resetPurchases}) {
 
     const ResetButton = () => {
